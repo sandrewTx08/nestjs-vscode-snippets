@@ -1,5 +1,18 @@
 # Prisma
 
+## Prisma Service
+
+```
+{
+  "NestJS Prisma Service": {
+    "body": [
+      "import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';\nimport { PrismaClient } from '@prisma/client';\n\n@Injectable()\nexport class PrismaService extends PrismaClient implements OnModuleInit {\n  async onModuleInit() {\n    await this.$connect();\n  }\n\n  async enableShutdownHooks(app: INestApplication) {\n    this.$on('beforeExit', async () => {\n      await app.close();\n    });\n  }\n}\n"
+    ],
+    "prefix": "nest-prisma"
+  }
+}
+```
+
 ## Service
 
 ```
