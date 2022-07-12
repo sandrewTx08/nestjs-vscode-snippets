@@ -23,3 +23,14 @@
   }
 }
 ```
+
+## Module
+
+```
+{
+  "NestJS Module": {
+    "body": ["import { Module } from '@nestjs/common';\nimport { $2sService } from './$1s.service';\nimport { $2sController } from './$1s.controller';\nimport { PrismaService } from 'src/prisma.service';\n\n@Module({\n  controllers: [$2sController],\n  providers: [$2sService, PrismaService],\n})\nexport class $2sModule {}\n"],
+    "prefix": "nest-module"
+  }
+}
+```
