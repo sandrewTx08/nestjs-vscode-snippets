@@ -1,6 +1,6 @@
-# Service
+# Prisma
 
-## Prisma
+## Service
 
 ```
   {
@@ -9,4 +9,17 @@
       "prefix": "nest-service"
     }
   }
+```
+
+## Controller
+
+```
+{
+  "NestJS Controller": {
+    "body": [
+      "import {\n  Controller,\n  Get,\n  Post,\n  Body,\n  Patch,\n  Param,\n  Delete,\n} from '@nestjs/common';\nimport { $2sService } from './$1.service';\nimport { Prisma } from '@prisma/client';\n\n@Controller('$1')\nexport class $2sController {\n  constructor(private readonly $1Service: $2sService) {}\n\n  @Post()\n  create(@Body() create$2Dto: Prisma.$2sCreateInput) {\n    return this.$1Service.create(create$2Dto);\n  }\n\n  @Get()\n  findAll() {\n    return this.$1Service.findAll();\n  }\n\n  @Get(':id')\n  findOne(@Param('id') id: number) {\n    return this.$1Service.findOne({ id: +id });\n  }\n\n  @Patch(':id')\n  update(\n    @Param('id') id: string,\n    @Body() update$2Dto: Prisma.$2sUpdateInput,\n  ) {\n    return this.$1Service.update({ id: +id }, update$2Dto);\n  }\n\n  @Delete(':id')\n  remove(@Param('id') id: string) {\n    return this.$1Service.remove({ id: +id });\n  }\n}\n"
+    ],
+    "prefix": "nest-controller"
+  }
+}
 ```
